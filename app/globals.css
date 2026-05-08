@@ -21,3 +21,28 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.luxury-scrollbar {
+  scrollbar-color: #d8bcb2 #fffaf6;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.luxury-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.luxury-scrollbar::-webkit-scrollbar-track {
+  background: #fffaf6;
+  border-radius: 999px;
+}
+
+.luxury-scrollbar::-webkit-scrollbar-thumb {
+  background: #d8bcb2;
+  border: 2px solid #fffaf6;
+  border-radius: 999px;
+}
+
+.luxury-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #b98a7d;
+}
