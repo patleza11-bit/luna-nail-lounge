@@ -495,39 +495,60 @@ export default function Home() {
 
       <section
         id="services"
-        className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:px-10 lg:py-24"
+        className="scroll-mt-24 bg-[#fcf1f4] px-6 py-16 sm:px-10 lg:py-24"
       >
-        <div className="mb-10 max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
-            Services
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold text-[#2f2824] sm:text-4xl">
-            Services for polished, everyday beauty.
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[#6f625b]">
-            Choose a signature service now and update details during your
-            appointment if needed.
-          </p>
-        </div>
+        <div className="mx-auto max-w-6xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="max-w-2xl">
+              <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#a45f6b]">
+                <span className="h-px w-10 bg-[#d8a6b0]" />
+                Services
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-[#2f2824] sm:text-4xl">
+                Services for polished, everyday beauty.
+              </h2>
+              <p className="mt-4 text-base leading-7 text-[#6f625b]">
+                Choose a signature service now and update details during your
+                appointment if needed.
+              </p>
+            </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <article
-              key={service.name}
-              className="rounded-lg border border-[#eadbd1] bg-white p-6 shadow-sm shadow-[#eadbd1]/40 transition hover:-translate-y-1 hover:border-[#cfada2] hover:shadow-lg hover:shadow-[#eadbd1]/60"
-            >
-              <div className="mb-5 h-px w-12 bg-[#b98a7d]" />
-              <h3 className="text-xl font-semibold text-[#2f2824]">
-                {service.name}
-              </h3>
-              <p className="mt-3 text-sm leading-6 text-[#6f625b]">
-                {service.description}
-              </p>
-              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#9f635d]">
-                {service.price}
-              </p>
-            </article>
-          ))}
+            <div className="relative isolate lg:pl-4">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-5 -z-10 rounded-[2rem] bg-gradient-to-br from-[#e8b6c0]/55 via-[#f5d8df]/40 to-transparent blur-2xl"
+              />
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/80 bg-white shadow-[0_24px_70px_rgba(159,99,93,0.2)]">
+                <Image
+                  alt="Warm nail salon lounge with manicure stations"
+                  className="object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 46vw"
+                  src="/nail-salon.png"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <article
+                key={service.name}
+                className="group rounded-lg border border-[#ead2d8] bg-[#fffdfb] p-6 shadow-sm shadow-[#d8a6b0]/25 transition-all duration-300 hover:-translate-y-1 hover:border-[#d8a6b0] hover:shadow-xl hover:shadow-[#b56f7c]/20"
+              >
+                <div className="mb-5 h-px w-12 bg-[#c98795] transition-all duration-300 group-hover:w-16 group-hover:bg-[#a45f6b]" />
+                <h3 className="text-xl font-semibold text-[#2f2824]">
+                  {service.name}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#6f625b]">
+                  {service.description}
+                </p>
+                <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#a45f6b]">
+                  {service.price}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
