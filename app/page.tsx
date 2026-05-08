@@ -266,17 +266,20 @@ export default function Home() {
   const services = [
     {
       name: "Gel Manicure",
-      description: "Glossy, chip-resistant color finished with meticulous cuticle care.",
+      description:
+        "Glossy, chip-resistant color finished with meticulous cuticle care.",
       price: "From $45",
     },
     {
       name: "Acrylic Full Set",
-      description: "Sculpted length and shape customized for a refined, polished look.",
+      description:
+        "Sculpted length and shape customized for a refined, polished look.",
       price: "From $70",
     },
     {
       name: "Deluxe Pedicure",
-      description: "A restorative foot ritual with exfoliation, massage, and luxe polish.",
+      description:
+        "A restorative foot ritual with exfoliation, massage, and luxe polish.",
       price: "From $58",
     },
     {
@@ -286,100 +289,241 @@ export default function Home() {
     },
   ];
 
-  return (
-    <main className="min-h-screen scroll-smooth bg-[#fffaf7] text-stone-900">
-      <style>{`html { scroll-behavior: smooth; }`}</style>
+  const trustCards = [
+    {
+      title: "Clean, Relaxing Salon Experience",
+      description:
+        "A calm setting with thoughtful sanitation and a comfortable appointment flow.",
+    },
+    {
+      title: "Licensed Nail Care",
+      description:
+        "Professional techniques, careful prep, and nail health considered at every visit.",
+    },
+    {
+      title: "Easy Online Booking",
+      description:
+        "Choose an available date and time from the booking form without extra back and forth.",
+    },
+    {
+      title: "Friendly, Appointment-Focused Service",
+      description:
+        "Warm service paced around your appointment so each visit feels considered.",
+    },
+  ];
 
-      <nav className="sticky top-0 z-50 -mb-20 h-20 border-b border-white/15 bg-stone-950/10 px-5 backdrop-blur-md sm:px-10">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-between gap-4">
+  const whyChooseCopy = [
+    "Luna Nail Lounge is designed for clients who want beautiful nails in a space that feels clean, calm, and cared for.",
+    "From classic manicures to detailed nail art, each service is approached with a steady eye for shape, finish, and comfort.",
+    "The booking experience is kept simple and appointment focused, so you can choose a time, share your details, and feel confident about your visit.",
+  ];
+
+  // Replace these placeholder business details with the salon's real contact information.
+  const businessInfo = [
+    {
+      label: "Address",
+      value: "123 Main Street, Suite 100, Your City, ST 00000",
+    },
+    {
+      label: "Phone",
+      value: "(555) 123-4567",
+    },
+    {
+      label: "Hours",
+      value: "Mon-Sat: 10:00 AM - 7:00 PM",
+    },
+    {
+      label: "Instagram",
+      value: "@lunanailounge",
+    },
+  ];
+
+  // Placeholder testimonials: replace these sample quotes with real client reviews before publishing.
+  const testimonials = [
+    {
+      quote:
+        "The space felt calm and clean, and my manicure looked polished without feeling rushed.",
+      name: "Sample Client",
+      detail: "Placeholder review",
+    },
+    {
+      quote:
+        "Booking was simple, and the appointment felt personal from start to finish.",
+      name: "Sample Client",
+      detail: "Placeholder review",
+    },
+    {
+      quote:
+        "A soft, professional salon experience with careful attention to detail.",
+      name: "Sample Client",
+      detail: "Placeholder review",
+    },
+  ];
+
+  return (
+    <main className="min-h-screen bg-[#fffaf6] text-[#2f2824]">
+      <nav className="sticky top-0 z-50 border-b border-[#eadbd1] bg-[#fffaf6]/95 px-5 backdrop-blur-md sm:px-10">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4">
           <a
-            className="shrink-0 text-sm font-semibold uppercase tracking-[0.26em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] transition hover:text-rose-100 sm:text-base"
+            className="shrink-0 text-sm font-semibold uppercase tracking-[0.22em] text-[#6f4f45] transition hover:text-[#9f635d] sm:text-base"
             href="#home"
           >
             Luna Nail Lounge
           </a>
-          <div className="flex items-center gap-1 rounded-full border border-white/15 bg-white/10 p-1 text-xs font-medium uppercase tracking-[0.18em] text-rose-50 shadow-lg shadow-stone-950/10 sm:gap-2">
+          <div className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#6f625b] md:flex">
             <a
-              className="rounded-full px-3 py-2 transition hover:bg-white/15 hover:text-white sm:px-4"
-              href="#home"
-            >
-              Home
-            </a>
-            <a
-              className="rounded-full px-3 py-2 transition hover:bg-white/15 hover:text-white sm:px-4"
+              className="transition hover:text-[#9f635d]"
               href="#services"
             >
               Services
             </a>
             <a
-              className="rounded-full px-3 py-2 transition hover:bg-white/15 hover:text-white sm:px-4"
-              href="#book"
+              className="transition hover:text-[#9f635d]"
+              href="#why"
             >
-              Book
+              Why Luna
+            </a>
+            <a
+              className="transition hover:text-[#9f635d]"
+              href="#visit"
+            >
+              Visit
             </a>
           </div>
+          <a
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2f2824] px-4 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-sm transition hover:bg-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1] sm:px-5"
+            href="#book"
+          >
+            Book
+          </a>
         </div>
       </nav>
 
       <header
         id="home"
-        className="relative flex min-h-[85vh] scroll-mt-20 items-center justify-center overflow-hidden px-6 text-center sm:min-h-[92vh] sm:px-10"
+        className="relative isolate flex min-h-[72svh] scroll-mt-16 items-center overflow-hidden bg-[#2f2824] px-6 py-20 text-white sm:px-10 sm:py-24 lg:py-28"
       >
         <Image
-          alt=""
-          aria-hidden="true"
-          className="scale-[1.02] object-cover object-center"
+          alt="Elegant manicured nails at Luna Nail Lounge"
+          className="object-cover object-center"
           fill
           priority
           sizes="100vw"
           src="/hero-nails.png"
         />
-        <div className="absolute inset-0 bg-rose-950/10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/18 to-rose-950/42" />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/18 via-transparent to-stone-950/18" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fffaf7] via-[#fffaf7]/25 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-5xl">
-          <div className="absolute left-1/2 top-1/2 -z-10 h-56 w-[min(34rem,88vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-stone-950/45 blur-3xl" />
-          <p className="mb-6 text-[0.72rem] font-semibold uppercase tracking-[0.42em] text-rose-100/95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]">
-            Modern nail atelier
-          </p>
-          <h1 className="text-5xl font-bold tracking-[0.04em] text-white drop-shadow-[0_10px_34px_rgba(0,0,0,0.65)] sm:text-7xl lg:text-8xl">
-            Luna Nail Lounge
-          </h1>
-          <p className="mx-auto mt-7 max-w-2xl text-base font-light leading-8 text-rose-50/95 drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)] sm:text-lg">
-            Luxury nail care and modern beauty services designed for elevated
-            everyday rituals.
-          </p>
+        <div className="absolute inset-0 bg-[#2f2824]/24" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2f2824]/64 via-[#2f2824]/28 to-[#2f2824]/5" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#fffaf6] to-transparent" />
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#f6d8d0]">
+              Modern Nail Care In A Calm Salon Setting
+            </p>
+            <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-tight tracking-normal text-white drop-shadow-[0_4px_18px_rgba(47,40,36,0.45)] sm:text-6xl lg:text-7xl">
+              Beautiful nails, thoughtfully cared for.
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#fff4ee] drop-shadow-[0_2px_12px_rgba(47,40,36,0.45)] sm:text-lg">
+              Luna Nail Lounge offers clean, appointment-focused nail care with
+              a soft, polished experience from booking to final coat.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#f7d8d0] px-6 text-sm font-semibold uppercase tracking-[0.16em] text-[#2f2824] shadow-lg shadow-[#2f2824]/20 transition hover:bg-white focus:outline-none focus:ring-4 focus:ring-white/30"
+                href="#book"
+              >
+                Book an Appointment
+              </a>
+              <a
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/45 px-6 text-sm font-semibold uppercase tracking-[0.16em] text-white transition hover:border-white hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/20"
+                href="#services"
+              >
+                View Services
+              </a>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#fff4ee]">
+              <span>Clean salon experience</span>
+              <span>Licensed nail care</span>
+              <span>Simple online booking</span>
+            </div>
+          </div>
         </div>
       </header>
+
+      <section
+        aria-label="Luna Nail Lounge trust highlights"
+        className="px-6 py-12 sm:px-10 lg:py-14"
+      >
+        <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {trustCards.map((card) => (
+            <article
+              className="rounded-lg border border-[#eadbd1] bg-white p-5 shadow-sm shadow-[#eadbd1]/40"
+              key={card.title}
+            >
+              <div className="mb-4 h-1 w-10 bg-[#b98a7d]" />
+              <h2 className="text-base font-semibold text-[#2f2824]">
+                {card.title}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-[#6f625b]">
+                {card.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="why"
+        className="scroll-mt-24 border-y border-[#eadbd1] bg-[#f8efe9] px-6 py-16 sm:px-10 lg:py-24"
+      >
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
+              Why Choose Luna Nail Lounge?
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#2f2824] sm:text-4xl">
+              A more polished way to enjoy your nail appointment.
+            </h2>
+          </div>
+          <div className="space-y-5 border-l border-[#cfada2] pl-6 text-base leading-8 text-[#5f544f] sm:pl-8">
+            {whyChooseCopy.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section
         id="services"
         className="mx-auto max-w-6xl scroll-mt-24 px-6 py-16 sm:px-10 lg:py-24"
       >
-        <div className="mx-auto mb-10 max-w-2xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.28em] text-rose-400">
+        <div className="mb-10 max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
             Services
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-stone-950 sm:text-4xl">
-            Our Services
+          <h2 className="mt-3 text-3xl font-semibold text-[#2f2824] sm:text-4xl">
+            Services for polished, everyday beauty.
           </h2>
+          <p className="mt-4 text-base leading-7 text-[#6f625b]">
+            Choose a signature service now and update details during your
+            appointment if needed.
+          </p>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <article
               key={service.name}
-              className="rounded-2xl border border-rose-100 bg-white/85 p-6 shadow-sm shadow-rose-100/70 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100"
+              className="rounded-lg border border-[#eadbd1] bg-white p-6 shadow-sm shadow-[#eadbd1]/40 transition hover:-translate-y-1 hover:border-[#cfada2] hover:shadow-lg hover:shadow-[#eadbd1]/60"
             >
-              <div className="mb-5 h-px w-12 bg-rose-300" />
-              <h3 className="text-xl font-semibold text-stone-950">
+              <div className="mb-5 h-px w-12 bg-[#b98a7d]" />
+              <h3 className="text-xl font-semibold text-[#2f2824]">
                 {service.name}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-stone-600">
+              <p className="mt-3 text-sm leading-6 text-[#6f625b]">
                 {service.description}
               </p>
-              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-rose-500">
+              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#9f635d]">
                 {service.price}
               </p>
             </article>
@@ -387,18 +531,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="book" className="scroll-mt-24 px-6 pb-20 sm:px-10 lg:pb-28">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-rose-100 bg-white p-6 shadow-2xl shadow-rose-100/80 sm:p-10">
-          <div className="mb-8 text-center">
-            <p className="text-sm font-medium uppercase tracking-[0.28em] text-rose-400">
-              Reserve your visit
+      <section
+        id="book"
+        className="scroll-mt-24 bg-[#f4e5dd] px-6 py-16 sm:px-10 lg:py-24"
+      >
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="lg:sticky lg:top-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
+              Reserve Your Visit
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-stone-950">
-              Book Appointment
+            <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#2f2824] sm:text-4xl">
+              Book an appointment online.
             </h2>
-            <p className="mt-3 text-sm leading-6 text-stone-600 sm:text-base">
-              Share your preferred service and timing. Our concierge will
-              confirm availability.
+            <p className="mt-5 text-base leading-8 text-[#5f544f]">
+              Select an available date and time, choose your service, and send
+              your appointment request. Availability still comes directly from
+              the existing booking system.
+            </p>
+          </div>
+
+          <div className="rounded-lg border border-[#d8bcb2] bg-white p-5 shadow-xl shadow-[#d8bcb2]/35 sm:p-8">
+          <div className="mb-8 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
+              Appointment Request
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#2f2824]">
+              Choose Your Time
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[#6f625b] sm:text-base">
+              We will save your request and update availability after booking.
             </p>
           </div>
 
@@ -408,9 +569,9 @@ export default function Home() {
             onSubmit={handleBookingSubmit}
           >
             <label className="block">
-              <span className="text-sm font-medium text-stone-700">Name</span>
+              <span className="text-sm font-medium text-[#5f544f]">Name</span>
               <input
-                className="mt-2 w-full rounded-2xl border border-stone-200 bg-[#fffaf7] px-4 py-3 text-stone-900 outline-none transition placeholder:text-stone-400 focus:border-rose-300 focus:ring-4 focus:ring-rose-100"
+                className="mt-2 w-full rounded-lg border border-[#ded0c8] bg-[#fffaf6] px-4 py-3 text-[#2f2824] outline-none transition placeholder:text-[#9d8d85] focus:border-[#b98a7d] focus:ring-4 focus:ring-[#eadbd1]"
                 onChange={(event) => {
                   setCustomerName(event.target.value);
                   setBookingMessage(null);
@@ -423,9 +584,9 @@ export default function Home() {
             </label>
 
             <label className="block">
-              <span className="text-sm font-medium text-stone-700">Phone</span>
+              <span className="text-sm font-medium text-[#5f544f]">Phone</span>
               <input
-                className="mt-2 w-full rounded-2xl border border-stone-200 bg-[#fffaf7] px-4 py-3 text-stone-900 outline-none transition placeholder:text-stone-400 focus:border-rose-300 focus:ring-4 focus:ring-rose-100"
+                className="mt-2 w-full rounded-lg border border-[#ded0c8] bg-[#fffaf6] px-4 py-3 text-[#2f2824] outline-none transition placeholder:text-[#9d8d85] focus:border-[#b98a7d] focus:ring-4 focus:ring-[#eadbd1]"
                 onChange={(event) => {
                   setPhone(event.target.value);
                   setBookingMessage(null);
@@ -438,11 +599,11 @@ export default function Home() {
             </label>
 
             <label className="block">
-              <span className="text-sm font-medium text-stone-700">
+              <span className="text-sm font-medium text-[#5f544f]">
                 Service
               </span>
               <select
-                className="mt-2 w-full rounded-2xl border border-stone-200 bg-[#fffaf7] px-4 py-3 text-stone-900 outline-none transition focus:border-rose-300 focus:ring-4 focus:ring-rose-100"
+                className="mt-2 w-full rounded-lg border border-[#ded0c8] bg-[#fffaf6] px-4 py-3 text-[#2f2824] outline-none transition focus:border-[#b98a7d] focus:ring-4 focus:ring-[#eadbd1]"
                 onChange={(event) => {
                   setService(event.target.value);
                   setBookingMessage(null);
@@ -458,18 +619,18 @@ export default function Home() {
             </label>
 
             <fieldset className="sm:col-span-2">
-              <legend className="flex items-center gap-3 text-sm font-medium text-stone-700">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-stone-950 text-xs font-semibold text-white">
+              <legend className="flex items-center gap-3 text-sm font-medium text-[#5f544f]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#2f2824] text-xs font-semibold text-white">
                   1
                 </span>
                 Select Date
               </legend>
               {isLoadingAvailability ? (
-                <p className="mt-3 rounded-2xl border border-rose-100 bg-[#fffaf7] px-4 py-5 text-sm text-stone-500">
+                <p className="mt-3 rounded-lg border border-[#eadbd1] bg-[#fffaf6] px-4 py-5 text-sm text-[#6f625b]">
                   Loading available dates...
                 </p>
               ) : availabilityError ? (
-                <p className="mt-3 rounded-2xl border border-rose-100 bg-rose-50 px-4 py-5 text-sm text-rose-700">
+                <p className="mt-3 rounded-lg border border-[#e8beb6] bg-[#fff2ef] px-4 py-5 text-sm text-[#9f3f36]">
                   {availabilityError}
                 </p>
               ) : availableDates.length > 0 ? (
@@ -480,10 +641,10 @@ export default function Home() {
                     return (
                       <button
                         aria-pressed={isSelected}
-                        className={`rounded-2xl border px-4 py-4 text-left shadow-sm transition focus:outline-none focus:ring-4 focus:ring-rose-100 ${
+                        className={`rounded-lg border px-4 py-4 text-left shadow-sm transition focus:outline-none focus:ring-4 focus:ring-[#eadbd1] ${
                           isSelected
-                            ? "border-stone-950 bg-stone-950 text-white shadow-stone-200"
-                            : "border-rose-100 bg-[#fffaf7] text-stone-700 hover:border-rose-300 hover:bg-rose-50 hover:text-rose-700 active:scale-[0.98]"
+                            ? "border-[#2f2824] bg-[#2f2824] text-white shadow-[#d8bcb2]"
+                            : "border-[#eadbd1] bg-[#fffaf6] text-[#5f544f] hover:border-[#b98a7d] hover:bg-[#f9eee9] hover:text-[#8c5751] active:scale-[0.98]"
                         }`}
                         key={date.id}
                         onClick={() => {
@@ -508,15 +669,15 @@ export default function Home() {
                   })}
                 </div>
               ) : (
-                <p className="mt-3 rounded-2xl border border-rose-100 bg-[#fffaf7] px-4 py-5 text-sm text-stone-500">
+                <p className="mt-3 rounded-lg border border-[#eadbd1] bg-[#fffaf6] px-4 py-5 text-sm text-[#6f625b]">
                   All appointment slots are currently booked.
                 </p>
               )}
             </fieldset>
 
             <fieldset className="sm:col-span-2" disabled={!selectedDateOption}>
-              <legend className="flex items-center gap-3 text-sm font-medium text-stone-700">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-rose-100 text-xs font-semibold text-rose-700">
+              <legend className="flex items-center gap-3 text-sm font-medium text-[#5f544f]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eadbd1] text-xs font-semibold text-[#8c5751]">
                   2
                 </span>
                 Select Time
@@ -529,10 +690,10 @@ export default function Home() {
                     return (
                       <button
                         aria-pressed={isSelected}
-                        className={`rounded-full border px-4 py-3 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-4 focus:ring-rose-100 ${
+                        className={`rounded-full border px-4 py-3 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-4 focus:ring-[#eadbd1] ${
                           isSelected
-                            ? "border-stone-950 bg-stone-950 text-white shadow-stone-200"
-                            : "border-rose-100 bg-[#fffaf7] text-stone-700 hover:border-rose-300 hover:bg-rose-50 hover:text-rose-700 active:scale-[0.98]"
+                            ? "border-[#2f2824] bg-[#2f2824] text-white shadow-[#d8bcb2]"
+                            : "border-[#eadbd1] bg-[#fffaf6] text-[#5f544f] hover:border-[#b98a7d] hover:bg-[#f9eee9] hover:text-[#8c5751] active:scale-[0.98]"
                         }`}
                         key={slot.id}
                         onClick={() => {
@@ -548,25 +709,25 @@ export default function Home() {
                   })}
                 </div>
               ) : (
-                <p className="mt-3 rounded-2xl border border-dashed border-rose-100 bg-[#fffaf7] px-4 py-5 text-sm text-stone-500">
+                <p className="mt-3 rounded-lg border border-dashed border-[#d8bcb2] bg-[#fffaf6] px-4 py-5 text-sm text-[#6f625b]">
                   Choose a date first to reveal available appointment times.
                 </p>
               )}
             </fieldset>
 
             <label className="block sm:col-span-2">
-              <span className="text-sm font-medium text-stone-700">
+              <span className="text-sm font-medium text-[#5f544f]">
                 Appointment Notes
               </span>
               <textarea
-                className="mt-2 min-h-28 w-full resize-none rounded-2xl border border-stone-200 bg-[#fffaf7] px-4 py-3 text-stone-900 outline-none transition placeholder:text-stone-400 focus:border-rose-300 focus:ring-4 focus:ring-rose-100"
+                className="mt-2 min-h-28 w-full resize-none rounded-lg border border-[#ded0c8] bg-[#fffaf6] px-4 py-3 text-[#2f2824] outline-none transition placeholder:text-[#9d8d85] focus:border-[#b98a7d] focus:ring-4 focus:ring-[#eadbd1]"
                 placeholder="Tell us about your preferred shape, color, or occasion."
               />
             </label>
 
             <div className="sm:col-span-2">
               <button
-                className="w-full rounded-2xl bg-stone-950 px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-stone-200 transition hover:bg-rose-700 focus:outline-none focus:ring-4 focus:ring-rose-100 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none"
+                className="w-full rounded-lg bg-[#2f2824] px-6 py-4 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-[#d8bcb2] transition hover:bg-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1] disabled:cursor-not-allowed disabled:bg-[#cdbfba] disabled:text-[#786c66] disabled:shadow-none"
                 disabled={
                   isSubmittingBooking ||
                   !selectedDateOption ||
@@ -582,7 +743,7 @@ export default function Home() {
                   aria-live="polite"
                   className={`mt-3 text-center text-sm font-medium ${
                     bookingMessage.type === "success"
-                      ? "text-rose-600"
+                      ? "text-[#8c5751]"
                       : "text-red-600"
                   }`}
                   role={bookingMessage.type === "error" ? "alert" : "status"}
@@ -592,6 +753,75 @@ export default function Home() {
               ) : null}
             </div>
           </form>
+        </div>
+        </div>
+      </section>
+
+      <section className="px-6 py-16 sm:px-10 lg:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
+              Reviews
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-[#2f2824] sm:text-4xl">
+              Kind words from future clients.
+            </h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <figure
+                className="rounded-lg border border-[#eadbd1] bg-white p-6 shadow-sm shadow-[#eadbd1]/40"
+                key={testimonial.quote}
+              >
+                <blockquote className="text-base leading-7 text-[#5f544f]">
+                  &quot;{testimonial.quote}&quot;
+                </blockquote>
+                <figcaption className="mt-6 border-t border-[#eadbd1] pt-4">
+                  <p className="font-semibold text-[#2f2824]">
+                    {testimonial.name}
+                  </p>
+                  <p className="mt-1 text-sm uppercase tracking-[0.16em] text-[#9f635d]">
+                    {testimonial.detail}
+                  </p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="visit"
+        className="scroll-mt-24 border-t border-[#eadbd1] bg-[#2f2824] px-6 py-16 text-white sm:px-10 lg:py-20"
+      >
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#f0cfc7]">
+              Visit Luna
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
+              Business information placeholders.
+            </h2>
+            <p className="mt-5 text-base leading-8 text-[#f7e7e1]">
+              Update these details when you are ready to publish the live
+              address, phone number, hours, and Instagram handle.
+            </p>
+          </div>
+          <dl className="grid gap-4 sm:grid-cols-2">
+            {businessInfo.map((item) => (
+              <div
+                className="rounded-lg border border-white/15 bg-white/10 p-5"
+                key={item.label}
+              >
+                <dt className="text-xs font-semibold uppercase tracking-[0.22em] text-[#f0cfc7]">
+                  {item.label}
+                </dt>
+                <dd className="mt-3 text-base leading-7 text-white">
+                  {item.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
     </main>
