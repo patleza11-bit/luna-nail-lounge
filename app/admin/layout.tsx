@@ -13,6 +13,7 @@ const navItems = [
   { label: "Dashboard", href: "/admin" },
   { label: "Calendar", href: "/admin/calendar" },
   { label: "Availability", href: "/admin/availability" },
+  { label: "Gallery", href: "/admin/gallery" },
   { label: "New Appointment", href: "/admin/appointments/new" },
   { label: "QR Code", href: "/admin/qr-code" },
 ];

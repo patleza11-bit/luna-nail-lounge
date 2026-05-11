@@ -3,6 +3,8 @@
 import { createClient } from "@supabase/supabase-js";
 import Image from "next/image";
 import { type FormEvent, useCallback, useEffect, useState } from "react";
+import { GalleryImagePreview } from "@/app/components/gallery-image-preview";
+import { formatSupabaseError } from "@/app/lib/supabase-errors";
 
 type AvailabilitySlotRow = {
   id: number | string;
@@ -16,6 +18,21 @@ type AvailabilitySlot = {
   date: string;
   time: string;
   is_booked: boolean;
+};
+
+type GalleryImageRow = {
+  id: string | number;
+  image_url?: string | null;
+  alt_text?: string | null;
+  created_at?: string | null;
+};
+
+type GalleryImage = {
+  id: string;
+  imageUrl: string;
+  altText: string;
+  caption: string;
+  createdAt: string;
 };
 
 type BookingMessage = {
@@ -71,6 +88,9 @@ export default function Home() {
   const [customerName, setCustomerName] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("Gel Manicure");
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+  const [galleryError, setGalleryError] = useState("");
+  const [isLoadingGallery, setIsLoadingGallery] = useState(true);
   const [bookingMessage, setBookingMessage] = useState<BookingMessage | null>(
     null,
   );
@@ -129,6 +149,61 @@ export default function Home() {
     }
   }, []);
 
+  const fetchGalleryImages = useCallback(async () => {
+    await Promise.resolve();
+
+    if (!supabase) {
+      setGalleryImages([]);
+      setIsLoadingGallery(false);
+      return;
+    }
+
+    try {
+      setIsLoadingGallery(true);
+
+      const { data, error } = await supabase
+        .from("gallery_images")
+        .select("id,image_url,alt_text,created_at")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error(
+          "Supabase gallery_images error:",
+          JSON.stringify(formatSupabaseError(error), null, 2),
+        );
+        setGalleryError("Gallery images could not be loaded right now.");
+        setGalleryImages([]);
+        return;
+      }
+
+      const images = ((data ?? []) as GalleryImageRow[])
+        .filter((image) => image.id && image.image_url)
+        .map((image) => {
+          const caption = image.alt_text?.trim() ?? "";
+
+          return {
+            id: String(image.id),
+            imageUrl: String(image.image_url),
+            altText: caption || "Nail salon gallery image from Luna Nail Lounge",
+            caption,
+            createdAt: image.created_at ?? "",
+          };
+        });
+
+      setGalleryImages(images);
+      setGalleryError("");
+    } catch (error) {
+      console.error(
+        "Unexpected gallery load error:",
+        JSON.stringify(formatSupabaseError(error), null, 2),
+      );
+      setGalleryError("Gallery images could not be loaded right now.");
+      setGalleryImages([]);
+    } finally {
+      setIsLoadingGallery(false);
+    }
+  }, []);
+
   useEffect(() => {
     const availabilityTimer = window.setTimeout(() => {
       fetchAvailability();
@@ -138,6 +213,16 @@ export default function Home() {
       window.clearTimeout(availabilityTimer);
     };
   }, [fetchAvailability]);
+
+  useEffect(() => {
+    const galleryTimer = window.setTimeout(() => {
+      fetchGalleryImages();
+    }, 0);
+
+    return () => {
+      window.clearTimeout(galleryTimer);
+    };
+  }, [fetchGalleryImages]);
 
   const availabilityByDate = availabilitySlots.reduce<
     Record<string, AvailabilitySlot[]>
@@ -379,6 +464,12 @@ export default function Home() {
             </a>
             <a
               className="transition hover:text-[#9f635d]"
+              href="#gallery"
+            >
+              Gallery
+            </a>
+            <a
+              className="transition hover:text-[#9f635d]"
               href="#why"
             >
               Why Luna
@@ -390,12 +481,20 @@ export default function Home() {
               Visit
             </a>
           </div>
-          <a
-            className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2f2824] px-4 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-sm transition hover:bg-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1] sm:px-5"
-            href="#book"
-          >
-            Book
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#eadbd1] px-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#6f625b] transition hover:border-[#d6a9a1] hover:text-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1] md:hidden"
+              href="#gallery"
+            >
+              Gallery
+            </a>
+            <a
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2f2824] px-4 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-sm transition hover:bg-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1] sm:px-5"
+              href="#book"
+            >
+              Book
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -407,7 +506,7 @@ export default function Home() {
           alt="Elegant manicured nails at Luna Nail Lounge"
           className="object-cover object-center"
           fill
-          priority
+          preload
           sizes="100vw"
           src="/hero-nails.png"
         />
@@ -775,6 +874,72 @@ export default function Home() {
             </div>
           </form>
         </div>
+        </div>
+      </section>
+
+      <section
+        id="gallery"
+        className="scroll-mt-24 border-y border-[#eadbd1] bg-[#fffaf6] px-6 py-16 sm:px-10 lg:py-24"
+      >
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
+                <span className="h-px w-10 bg-[#d8bcb2]" />
+                Gallery
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold text-[#2f2824] sm:text-4xl">
+                Recent nail looks from the lounge.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-base leading-7 text-[#6f625b] lg:ml-auto">
+              A polished look at the finishes, shapes, and details clients can
+              bring into their next appointment.
+            </p>
+          </div>
+
+          {isLoadingGallery ? (
+            <div
+              className="rounded-lg border border-dashed border-[#d8bcb2] bg-white px-5 py-10 text-center text-sm font-medium text-[#6f625b]"
+              role="status"
+            >
+              Loading gallery...
+            </div>
+          ) : galleryImages.length > 0 ? (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {galleryImages.map((image) => (
+                <figure
+                  className="group overflow-hidden rounded-lg border border-[#eadbd1] bg-white shadow-sm shadow-[#d8bcb2]/35 transition duration-300 hover:-translate-y-1 hover:border-[#d6a9a1] hover:shadow-xl hover:shadow-[#d8bcb2]/40"
+                  key={image.id}
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[#f8efe9]">
+                    <GalleryImagePreview
+                      alt={image.altText}
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      src={image.imageUrl}
+                    />
+                  </div>
+                  {image.caption ? (
+                    <figcaption className="px-4 py-3 text-sm leading-6 text-[#6f625b]">
+                      {image.caption}
+                    </figcaption>
+                  ) : null}
+                </figure>
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-lg border border-dashed border-[#d8bcb2] bg-white px-5 py-12 text-center shadow-sm shadow-[#eadbd1]/35">
+              <p className="text-lg font-semibold text-[#2f2824]">
+                Gallery coming soon.
+              </p>
+              <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#6f625b]">
+                {galleryError
+                  ? "Gallery photos are temporarily unavailable. Please check back soon."
+                  : "Fresh manicure and nail art photos will appear here once the salon owner uploads them."}
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

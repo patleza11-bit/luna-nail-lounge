@@ -24,6 +24,12 @@ const dashboardCards = [
     accent: "bg-[#f4e5dd]",
   },
   {
+    title: "Gallery images",
+    description: "Upload nail looks for the public homepage.",
+    href: "/admin/gallery",
+    accent: "bg-[#f7d8d0]",
+  },
+  {
     title: "Quick add appointment",
     description: "Start a new appointment by hand.",
     href: "/admin/appointments/new",
@@ -46,7 +52,7 @@ export default function AdminDashboardPage() {
         description="A soft, simple starting point for managing the Luna Nail Lounge booking flow."
       />
 
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {dashboardCards.map((card) => (
           <Link
             className="group flex min-h-44 flex-col rounded-lg border border-[#eadbd1] bg-white p-5 shadow-sm shadow-[#eadbd1]/35 transition hover:-translate-y-1 hover:border-[#d6a9a1] hover:shadow-lg hover:shadow-[#d8bcb2]/35 focus:outline-none focus:ring-4 focus:ring-[#eadbd1]"
