@@ -5,8 +5,9 @@ import { signOutAdmin } from "@/app/admin/actions";
 import { requireAdminSession } from "@/app/lib/admin-session";
 
 export const metadata: Metadata = {
-  title: "Admin | Luna Nail Lounge",
-  description: "Owner tools for Luna Nail Lounge appointments and availability.",
+  title: "Admin | Beauty Nail Lounge",
+  description:
+    "Owner tools for Beauty Nail Lounge appointments and availability.",
 };
 
 const navItems = [
@@ -49,7 +50,7 @@ export default async function AdminLayout({
       <header className="sticky top-0 z-40 border-b border-[#eadbd1] bg-[#fffaf6]/95 px-4 py-3 backdrop-blur-md lg:hidden">
         <div className="flex items-center justify-between gap-3">
           <Link className="font-semibold text-[#2f2824]" href="/admin">
-            Luna Admin
+            Beauty Admin
           </Link>
           <form action={signOutAdmin}>
             <button
@@ -71,7 +72,7 @@ export default async function AdminLayout({
       <div className="mx-auto grid max-w-7xl lg:grid-cols-[17rem_1fr]">
         <aside className="sticky top-0 hidden min-h-screen border-r border-[#eadbd1] bg-[#fffdfb] p-6 lg:flex lg:flex-col">
           <Link className="text-xl font-semibold text-[#2f2824]" href="/admin">
-            Luna Nail Lounge
+            Beauty Nail Lounge
           </Link>
           <p className="mt-2 text-sm leading-6 text-[#6f625b]">
             Owner studio

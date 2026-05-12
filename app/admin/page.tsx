@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
       <AdminPageHeader
         eyebrow="Owner area"
         title="Admin"
-        description="A soft, simple starting point for managing the Luna Nail Lounge booking flow."
+        description="A soft, simple starting point for managing the Beauty Nail Lounge booking flow."
       />
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

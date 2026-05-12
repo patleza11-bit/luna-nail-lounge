@@ -1,10 +1,16 @@
-export const ADMIN_SESSION_COOKIE = "luna_admin_session";
+export const ADMIN_SESSION_COOKIE = "beauty_admin_session";
 export const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60 * 12;
+export const ADMIN_PASSWORD_ENV_LABEL =
+  "ADMIN_PASSWORD (or legacy LUNA_ADMIN_PASSWORD)";
 
 const encoder = new TextEncoder();
 
 function getAdminSecret() {
-  return process.env.LUNA_ADMIN_PASSWORD?.trim() ?? "";
+  return (
+    process.env.ADMIN_PASSWORD?.trim() ||
+    process.env.LUNA_ADMIN_PASSWORD?.trim() ||
+    ""
+  );
 }
 
 function toHex(bytes: Uint8Array) {
@@ -31,7 +37,7 @@ async function signSessionPayload(payload: string) {
   const secret = getAdminSecret();
 
   if (!secret) {
-    throw new Error("LUNA_ADMIN_PASSWORD is required for admin sessions.");
+    throw new Error(`${ADMIN_PASSWORD_ENV_LABEL} is required for admin sessions.`);
   }
 
   const key = await crypto.subtle.importKey(

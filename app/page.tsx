@@ -184,7 +184,8 @@ export default function Home() {
           return {
             id: String(image.id),
             imageUrl: String(image.image_url),
-            altText: caption || "Nail salon gallery image from Luna Nail Lounge",
+            altText:
+              caption || "Nail salon gallery image from Beauty Nail Lounge",
             caption,
             createdAt: image.created_at ?? "",
           };
@@ -398,7 +399,7 @@ export default function Home() {
   ];
 
   const whyChooseCopy = [
-    "Luna Nail Lounge is designed for clients who want beautiful nails in a space that feels clean, calm, and cared for.",
+    "Beauty Nail Lounge is designed for clients who want beautiful nails in a space that feels clean, calm, and cared for.",
     "From classic manicures to detailed nail art, each service is approached with a steady eye for shape, finish, and comfort.",
     "The booking experience is kept simple and appointment focused, so you can choose a time, share your details, and feel confident about your visit.",
   ];
@@ -419,7 +420,7 @@ export default function Home() {
     },
     {
       label: "Instagram",
-      value: "@lunanailounge",
+      value: "@beautynailounge",
     },
   ];
 
@@ -453,7 +454,7 @@ export default function Home() {
             className="shrink-0 text-sm font-semibold uppercase tracking-[0.22em] text-[#6f4f45] transition hover:text-[#9f635d] sm:text-base"
             href="#home"
           >
-            Luna Nail Lounge
+            Beauty Nail Lounge
           </a>
           <div className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-[0.18em] text-[#6f625b] md:flex">
             <a
@@ -472,7 +473,7 @@ export default function Home() {
               className="transition hover:text-[#9f635d]"
               href="#why"
             >
-              Why Luna
+              Why Beauty
             </a>
             <a
               className="transition hover:text-[#9f635d]"
@@ -503,7 +504,7 @@ export default function Home() {
         className="relative isolate flex min-h-[72svh] scroll-mt-16 items-center overflow-hidden bg-[#2f2824] px-6 py-20 text-white sm:px-10 sm:py-24 lg:py-28"
       >
         <Image
-          alt="Elegant manicured nails at Luna Nail Lounge"
+          alt="Elegant manicured nails at Beauty Nail Lounge"
           className="object-cover object-center"
           fill
           preload
@@ -523,7 +524,7 @@ export default function Home() {
               Beautiful nails, thoughtfully cared for.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#fff4ee] drop-shadow-[0_2px_12px_rgba(47,40,36,0.45)] sm:text-lg">
-              Luna Nail Lounge offers clean, appointment-focused nail care with
+              Beauty Nail Lounge offers clean, appointment-focused nail care with
               a soft, polished experience from booking to final coat.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -550,7 +551,7 @@ export default function Home() {
       </header>
 
       <section
-        aria-label="Luna Nail Lounge trust highlights"
+        aria-label="Beauty Nail Lounge trust highlights"
         className="px-6 py-12 sm:px-10 lg:py-14"
       >
         <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -578,7 +579,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
-              Why Choose Luna Nail Lounge?
+              Why Choose Beauty Nail Lounge?
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#2f2824] sm:text-4xl">
               A more polished way to enjoy your nail appointment.
@@ -983,7 +984,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#f0cfc7]">
-              Visit Luna
+              Visit Beauty
             </p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
               Business information placeholders.

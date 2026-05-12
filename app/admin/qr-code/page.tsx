@@ -43,7 +43,7 @@ export default async function QrCodePage() {
       <AdminPageHeader
         eyebrow="Booking QR"
         title="QR Code"
-        description="Print a soft Luna booking flyer clients can scan before they leave."
+        description="Print a soft Beauty Nail Lounge booking flyer clients can scan before they leave."
         action={
           <Link
             className="flex min-h-12 items-center justify-center rounded-lg bg-[#2f2824] px-5 text-sm font-semibold text-white transition hover:bg-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1]"

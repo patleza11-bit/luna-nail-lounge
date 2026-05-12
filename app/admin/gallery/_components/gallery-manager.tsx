@@ -216,7 +216,7 @@ function GalleryGrid({
             <GalleryImagePreview
               alt={
                 image.alt_text ||
-                "Nail salon gallery image from Luna Nail Lounge"
+                "Nail salon gallery image from Beauty Nail Lounge"
               }
               className="object-cover"
               sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"

@@ -26,7 +26,7 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
   );
 
   const handleDownload = () => {
-    const svg = document.getElementById("luna-booking-qr");
+    const svg = document.getElementById("beauty-booking-qr");
 
     if (!svg) {
       return;
@@ -40,7 +40,7 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
     const link = document.createElement("a");
 
     link.href = url;
-    link.download = "luna-booking-qr.svg";
+    link.download = "beauty-booking-qr.svg";
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -50,11 +50,11 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_15rem] lg:items-start">
         <section
           className="mx-auto flex w-full max-w-[46rem] flex-col items-center justify-between rounded-lg border border-[#eadbd1] bg-[#fffaf6] p-6 text-center shadow-sm shadow-[#eadbd1]/35 sm:min-h-[44rem] sm:p-10"
-          id="luna-qr-print"
+          id="beauty-qr-print"
         >
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9f635d]">
-              Luna Nail Lounge
+              Beauty Nail Lounge
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight text-[#2f2824] sm:text-5xl">
               Scan to book your next appointment
@@ -69,7 +69,7 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
             <QRCodeSVG
               bgColor="#ffffff"
               fgColor="#2f2824"
-              id="luna-booking-qr"
+              id="beauty-booking-qr"
               level="H"
               marginSize={3}
               size={260}
@@ -87,7 +87,7 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
           </div>
         </section>
 
-        <aside className="luna-qr-actions grid gap-3 rounded-lg bg-[#fffaf6] p-4">
+        <aside className="beauty-qr-actions grid gap-3 rounded-lg bg-[#fffaf6] p-4">
           <button
             className="min-h-12 rounded-lg bg-[#2f2824] px-5 text-sm font-semibold text-white shadow-lg shadow-[#d8bcb2] transition hover:bg-[#9f635d] focus:outline-none focus:ring-4 focus:ring-[#eadbd1]"
             onClick={handleDownload}
@@ -120,12 +120,12 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
             visibility: hidden !important;
           }
 
-          #luna-qr-print,
-          #luna-qr-print * {
+          #beauty-qr-print,
+          #beauty-qr-print * {
             visibility: visible !important;
           }
 
-          #luna-qr-print {
+          #beauty-qr-print {
             border: 0 !important;
             border-radius: 0 !important;
             box-shadow: none !important;
@@ -136,7 +136,7 @@ export function BookingQr({ bookingUrl }: BookingQrProps) {
             width: 8.5in !important;
           }
 
-          .luna-qr-actions {
+          .beauty-qr-actions {
             display: none !important;
           }
         }

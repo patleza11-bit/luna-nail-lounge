@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luna Nail Lounge | Modern Nail Care",
+  title: "Beauty Nail Lounge | Modern Nail Care",
   description:
     "Clean, appointment-focused nail care in a soft and polished salon setting.",
 };

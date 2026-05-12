@@ -31,7 +31,7 @@ for delete
 to authenticated
 using (true);
 
--- The Luna admin page writes with SUPABASE_SERVICE_ROLE_KEY from server actions.
+-- The Beauty Nail Lounge admin page writes with SUPABASE_SERVICE_ROLE_KEY from server actions.
 -- Service role requests bypass RLS; these authenticated policies are only needed
 -- if you later replace the passcode admin with Supabase Auth owner accounts.
 

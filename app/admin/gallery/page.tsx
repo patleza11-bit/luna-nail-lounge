@@ -5,8 +5,8 @@ import { GalleryManager } from "@/app/admin/gallery/_components/gallery-manager"
 import { getGalleryServiceStatus } from "@/app/admin/gallery/_lib/gallery-supabase";
 
 export const metadata: Metadata = {
-  title: "Gallery Admin | Luna Nail Lounge",
-  description: "Upload and manage Luna Nail Lounge public gallery images.",
+  title: "Gallery Admin | Beauty Nail Lounge",
+  description: "Upload and manage Beauty Nail Lounge public gallery images.",
 };
 
 type GalleryPageProps = {

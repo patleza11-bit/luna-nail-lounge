@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { logInAdmin } from "@/app/login/actions";
 import {
+  ADMIN_PASSWORD_ENV_LABEL,
   isAdminPasswordConfigured,
   normalizeAdminNextPath,
 } from "@/app/lib/admin-auth";
@@ -9,7 +10,7 @@ import { hasAdminSession } from "@/app/lib/admin-session";
 
 const errorMessages = {
   invalid: "That passcode did not match.",
-  missing: "Admin login is not configured yet.",
+  missing: `Admin login is not configured yet. Set ${ADMIN_PASSWORD_ENV_LABEL} in .env.local.`,
 };
 
 type LoginPageProps = {
@@ -39,7 +40,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
               className="inline-flex min-h-11 items-center text-sm font-semibold text-[#f7d8d0] transition hover:text-white"
               href="/"
             >
-              Luna Nail Lounge
+              Beauty Nail Lounge
             </Link>
             <div className="mt-14 max-w-sm">
               <p className="text-sm text-[#f7d8d0]">Owner access</p>
@@ -63,8 +64,9 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
                 Enter admin passcode
               </h2>
               <p className="mt-3 text-sm leading-6 text-[#6f625b]">
-                Set <code>LUNA_ADMIN_PASSWORD</code> in <code>.env.local</code>{" "}
-                to enable this placeholder gate.
+                Set <code>ADMIN_PASSWORD</code> in <code>.env.local</code> to
+                enable this placeholder gate. <code>LUNA_ADMIN_PASSWORD</code>{" "}
+                is still accepted as a legacy fallback.
               </p>
 
               {!isConfigured ? (
